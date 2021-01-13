@@ -17,10 +17,10 @@ public class Furgone extends Veicolo {
         super(marca, anno, cilindrata);
         this.capacita = capacita;
     }
-
-    public String toStringF() {
-        String tx = toString();
-        tx = "Capacita: " + capacita;
+@Override
+    public String toString() {
+        
+      String  tx = super.toString()+ "\nCapacita: " + capacita;
         return tx;
     }
 }

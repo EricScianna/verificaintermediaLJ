@@ -20,7 +20,8 @@ public class Veicolo {
         this.anno = anno;
         this.cilindrata = cilindrata;
     }
-
+    
+@Override
     public String toString() {
         String tx = "";
         tx = "Marca: " + marca + "\nAnno: " + anno + "\ncilindrata: " + cilindrata;

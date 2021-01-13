@@ -20,9 +20,10 @@ public class Auto extends Veicolo {
         this.alimentazione = alimentazione;
     }
 
-    public String toStringA() {
-        String tx = toString();
-        tx = "Porte: " + porte + "\nAlimentazione: " + alimentazione;
+    @Override
+    public String toString() {
+
+        String tx = super.toString() + "\nPorte: " + porte + "\nAlimentazione: " + alimentazione;
         return tx;
     }
 

@@ -18,9 +18,10 @@ public class Moto extends Veicolo {
         this.tempi = tempi;
     }
 
-    public String toStringM() {
-        String tx = toString();
-        tx = "Tempi: " + tempi;
+    @Override
+    public String toString() {
+
+        String tx = super.toString() + "\nTempi: " + tempi;
         return tx;
     }
 }

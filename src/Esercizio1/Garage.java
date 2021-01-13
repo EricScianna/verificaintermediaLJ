@@ -11,14 +11,6 @@ package Esercizio1;
  */
 public class Garage {
 
-    /*  static void immissioneVeicolo(String marca, int anno, int cilindrata) {
-        if (App.garageArr.size() < 15) {
-            Veicolo veicolo = new Veicolo(marca, anno, cilindrata);
-            App.garageArr.add(veicolo);
-        } else {
-            System.out.println("Garage pieno");
-        }
-    }*/
     static void immissioneAuto(String marca, int anno, int cilindrata, int porte, String alimentazione) {
         if (App.garageArr.size() < 15) {
             Auto auto = new Auto(marca, anno, cilindrata, porte, alimentazione);
@@ -49,6 +41,7 @@ public class Garage {
     static void estrazioneVeicolo(int i) {
         System.out.println("----ESTRAZIONE-----");
         System.out.println(App.garageArr.get(i).toString() + "\n");
+        App.garageArr.remove(i);
 
     }
 
