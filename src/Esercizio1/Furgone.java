@@ -9,6 +9,6 @@ package Esercizio1;
  *
  * @author scian
  */
-public class Furgone {
+public class Furgone extends Veicolo{
     
 }
