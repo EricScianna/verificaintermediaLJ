@@ -9,6 +9,18 @@ package Esercizio1;
  *
  * @author scian
  */
-public class Furgone extends Veicolo{
-    
+public class Furgone extends Veicolo {
+
+    int capacita;
+
+    public Furgone(String marca, int anno, int cilindrata, int capacita) {
+        super(marca, anno, cilindrata);
+        this.capacita = capacita;
+    }
+
+    public String toStringF() {
+        String tx = toString();
+        tx = "Capacita: " + capacita;
+        return tx;
+    }
 }

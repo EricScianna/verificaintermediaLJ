@@ -10,5 +10,21 @@ package Esercizio1;
  * @author scian
  */
 public class Veicolo {
-    
+
+    String marca;
+    int anno;
+    int cilindrata;
+
+    public Veicolo(String marca, int anno, int cilindrata) {
+        this.marca = marca;
+        this.anno = anno;
+        this.cilindrata = cilindrata;
+    }
+
+    public String toString() {
+        String tx = "";
+        tx = "Marca: " + marca + "\nAnno: " + anno + "\ncilindrata: " + cilindrata;
+        return tx;
+    }
+
 }

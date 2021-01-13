@@ -9,6 +9,18 @@ package Esercizio1;
  *
  * @author scian
  */
-public class Moto extends Veicolo{
-    
+public class Moto extends Veicolo {
+
+    int tempi;
+
+    public Moto(String marca, int anno, int cilindrata, int tempi) {
+        super(marca, anno, cilindrata);
+        this.tempi = tempi;
+    }
+
+    public String toStringM() {
+        String tx = toString();
+        tx = "Tempi: " + tempi;
+        return tx;
+    }
 }
