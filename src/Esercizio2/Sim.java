@@ -27,22 +27,22 @@ public class Sim {
         listaChiamate.add(chiamata);
     }
 
-    static void calcoloMinuti() {
+    static int calcoloMinuti() {
         int totaleMinuti = 0;
         for (Chiamate c : listaChiamate) {
             totaleMinuti += c.getMinutiConversazione();
         }
-        System.err.println("\nTotale minuti in chiamata: " + totaleMinuti);
+        return totaleMinuti;
     }
 
-    static void totaleChiamate(String numeroChiamato) {
+    static int totaleChiamate(String numeroChiamato) {
         int totaleChiamate = 0;
         for (Chiamate c : listaChiamate) {
             if (c.getNumeroChiamato().equals(numeroChiamato)) {
                 totaleChiamate++;
             }
         }
-        System.err.println("\nTotaleChiamate effettuate: " + totaleChiamate);
+        return totaleChiamate;
     }
 
     static void stampa(int i) {
