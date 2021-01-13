@@ -5,51 +5,55 @@
  */
 package Esercizio1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author scian
  */
 public class Garage {
 
-    static void immissioneAuto(String marca, int anno, int cilindrata, int porte, String alimentazione) {
-        if (App.garageArr.size() < 15) {
-            Auto auto = new Auto(marca, anno, cilindrata, porte, alimentazione);
-            App.garageArr.add(auto);
-        } else {
-            System.out.println("Garage pieno");
+    private final List<Veicolo> garageArr;
+    private final int posti;
+
+    public Garage(int posti) {
+        this.posti = posti;
+        garageArr = new ArrayList<>(posti);
+        inizializza(posti);
+    }
+
+    public void entra(Veicolo v) {
+        if (postoLibero() == -1) {
+            throw new IllegalStateException("Il garage è pieno");
+        }
+        garageArr.set(postoLibero(), v);
+    }
+
+    public Veicolo estrazioneVeicolo(int i) {
+        if (i >= this.posti || garageArr.get(i) == null) {
+            return null;
+        }
+        Veicolo v = garageArr.get(i);
+        garageArr.set(i, null);
+        return v;
+    }
+
+    void stampa() {
+        for (int i = 0; i < garageArr.size(); i++) {
+            System.out.println("----POSTO N°" + i + "-----");
+            System.out.println(garageArr.get(i) + "\n");
+        }
+
+    }
+
+    private void inizializza(int posti) {
+        for (int i = 0; i < posti; i++) {
+            garageArr.add(null);
         }
     }
 
-    static void immissioneFurgone(String marca, int anno, int cilindrata, int capacita) {
-        if (App.garageArr.size() < 15) {
-            Furgone furgone = new Furgone(marca, anno, cilindrata, capacita);
-            App.garageArr.add(furgone);
-        } else {
-            System.out.println("Garage pieno");
-        }
-    }
-
-    static void immissioneMoto(String marca, int anno, int cilindrata, int tempi) {
-        if (App.garageArr.size() < 15) {
-            Moto moto = new Moto(marca, anno, cilindrata, tempi);
-            App.garageArr.add(moto);
-        } else {
-            System.out.println("Garage pieno");
-        }
-    }
-
-    static void estrazioneVeicolo(int i) {
-        System.out.println("----ESTRAZIONE-----");
-        System.out.println(App.garageArr.get(i).toString() + "\n");
-        App.garageArr.remove(i);
-
-    }
-
-    static void stampa() {
-        for (Veicolo v : App.garageArr) {
-            System.out.println("----STAMPA-----");
-            System.out.println(v.toString() + "\n");
-        }
-
+    private int postoLibero() {
+        return garageArr.indexOf(null);
     }
 }

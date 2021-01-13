@@ -11,10 +11,14 @@ package Esercizio1;
  */
 public class Auto extends Veicolo {
 
-    private int porte;
-    private String alimentazione;
+    public static enum Alimentazione {
+        Diesel, Benzina
+    }
+    private final int porte;
 
-    public Auto(String marca, int anno, int cilindrata, int porte, String alimentazione) {
+    private Alimentazione alimentazione;
+
+    public Auto(String marca, int anno, int cilindrata, int porte, Alimentazione alimentazione) {
         super(marca, anno, cilindrata);
         this.porte = porte;
         this.alimentazione = alimentazione;

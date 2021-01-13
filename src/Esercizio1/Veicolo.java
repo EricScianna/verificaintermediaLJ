@@ -11,17 +11,17 @@ package Esercizio1;
  */
 public class Veicolo {
 
-    String marca;
-    int anno;
-    int cilindrata;
+    private final String marca;
+    private final int anno;
+    private final int cilindrata;
 
     public Veicolo(String marca, int anno, int cilindrata) {
         this.marca = marca;
         this.anno = anno;
         this.cilindrata = cilindrata;
     }
-    
-@Override
+
+    @Override
     public String toString() {
         String tx = "";
         tx = "Marca: " + marca + "\nAnno: " + anno + "\ncilindrata: " + cilindrata;

@@ -13,36 +13,46 @@ import java.util.ArrayList;
  */
 public class Sim {
 
-    private String numeroTelefonico;
-    private double credito;
-    private ArrayList<Chiamate> listaChiamate = new ArrayList<Chiamate>();
+    static String numeroTelefonico;
+    static double credito;
+    static ArrayList<Chiamate> listaChiamate = new ArrayList<Chiamate>();
 
-    public Sim(String numero, double credito) {
+    public Sim(String numeroTelefonico, double credito) {
         this.numeroTelefonico = numeroTelefonico;
         this.credito = credito;
     }
 
-    public void telefonata(String numeroChiamato, int minutiConversazione) {
+    static void telefonata(String numeroChiamato, int minutiConversazione) {
         Chiamate chiamata = new Chiamate(numeroChiamato, minutiConversazione);
         listaChiamate.add(chiamata);
     }
 
-    public int calcoloMinuti() {
+    static void calcoloMinuti() {
         int totaleMinuti = 0;
         for (Chiamate c : listaChiamate) {
             totaleMinuti += c.getMinutiConversazione();
         }
-        return totaleMinuti;
+        System.err.println("\nTotale minuti in chiamata: " + totaleMinuti);
     }
 
-    public int totaleChiamate(String numeroChiamato) {
+    static void totaleChiamate(String numeroChiamato) {
         int totaleChiamate = 0;
         for (Chiamate c : listaChiamate) {
             if (c.getNumeroChiamato().equals(numeroChiamato)) {
                 totaleChiamate++;
             }
         }
-        return totaleChiamate;
+        System.err.println("\nTotaleChiamate effettuate: " + totaleChiamate);
+    }
+
+    static void stampa(int i) {
+        String tx = "";
+        tx += "Numero telefonico: " + numeroTelefonico + "\n-----------------\nELENCO CHIAMATE";
+        for (Chiamate c : listaChiamate) {
+            tx += "\nNumero chiamato: " + c.getNumeroChiamato() + " - Minuti conversazione: " + c.getMinutiConversazione();
+        }
+        System.out.println(tx);
+
     }
 
 }

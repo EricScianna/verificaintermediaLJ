@@ -11,16 +11,17 @@ package Esercizio1;
  */
 public class Furgone extends Veicolo {
 
-    int capacita;
+    private final int capacita;
 
     public Furgone(String marca, int anno, int cilindrata, int capacita) {
         super(marca, anno, cilindrata);
         this.capacita = capacita;
     }
-@Override
+
+    @Override
     public String toString() {
-        
-      String  tx = super.toString()+ "\nCapacita: " + capacita;
+
+        String tx = super.toString() + "\nCapacita: " + capacita;
         return tx;
     }
 }

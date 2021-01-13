@@ -13,20 +13,24 @@ import java.util.ArrayList;
  */
 public class App {
 
-    static ArrayList<Veicolo> garageArr = new ArrayList<Veicolo>();
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Garage.immissioneAuto("fiat", 2000, 1600, 3, "Diesel");
-        Garage.immissioneAuto("mercedes", 2016, 1700, 5, "Benzina");
-        Garage.immissioneFurgone("iveco", 2020, 3000, 50000);
-        Garage.immissioneFurgone("stralis", 2018, 4000, 80000);
-        Garage.immissioneMoto("suzuki", 2017, 1000, 5);
-        Garage.immissioneMoto("Ducati", 2019, 600, 4);
-        Garage.estrazioneVeicolo(1);
-        Garage.stampa();
+        
+        Garage garage = new Garage(15);
+        garage.entra(new Auto("fiat", 2000, 1600, 3, Auto.Alimentazione.Benzina));
+        garage.entra(new Auto("mercedes", 2016, 1700, 5, Auto.Alimentazione.Diesel));
+
+        garage.entra(new Furgone("iveco", 2020, 3000, 50000));
+        garage.entra(new Furgone("stralis", 2018, 4000, 80000));
+
+        garage.entra(new Moto("suzuki", 2017, 1000, 2));
+        garage.entra(new Moto("Ducati", 2019, 600, 4));
+
+        System.out.println("ESCE \n"+garage.estrazioneVeicolo(7)+"\n");
+        
+        garage.stampa();
 
     }
 
